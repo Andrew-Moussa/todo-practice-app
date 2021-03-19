@@ -2,8 +2,9 @@ import React from "react";
 
 import Button from "../Button/Button";
 
-const TextField = ({}) => {
+const TextField = ({ onOkClicked }) => {
   const [value, setValue] = React.useState("");
+  const resetText = () => setValue("");
 
   return (
     <>
@@ -12,10 +13,16 @@ const TextField = ({}) => {
         value={value}
         onChange={(event) => setValue(event.target.value)}
       ></input>
-      <Button text="Ok" onClick={} />
-      <Button text="Cancel" onClick={() => setValue("")} />
+      <Button
+        text="Ok"
+        onClick={() => {
+          onOkClicked(value);
+          resetText();
+        }}
+      />
+      <Button text="Cancel" onClick={resetText} />
     </>
   );
 };
 
-export const TextField;
+export default TextField;

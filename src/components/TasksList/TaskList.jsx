@@ -1,9 +1,18 @@
 import React from "react";
+import Task from "../Task/Task";
 
-const TaskList = ({ tasks }) => {
-  return tasks.map(({ checked, text }) => (
-    <Task isChecked={checked} text={text} />
-  ));
+const TaskList = ({ tasks, onTaskClicked }) => {
+  return tasks.map(({ id, checked, text }) => {
+    return (
+      <Task
+        key={id}
+        identifier={id}
+        isChecked={checked}
+        text={text}
+        onTaskClicked={onTaskClicked}
+      />
+    );
+  });
 };
 
 export default TaskList;

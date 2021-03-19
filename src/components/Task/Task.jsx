@@ -1,9 +1,13 @@
 import React from "react";
 
-const Task = ({ isChecked = false, text }) => {
+const Task = ({ identifier, isChecked = false, text, onTaskClicked }) => {
   return (
     <>
-      <input type="checkbox" checked={isChecked} />
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={() => onTaskClicked(identifier)}
+      />
       <span>{text}</span>
     </>
   );
