@@ -24,6 +24,7 @@ class ListElement extends React.Component {
     const id = setInterval(() => {
       console.log("setInterval is called");
       this.setState({ time: this.state.time + 1000 });
+      console.log("Time is now", this.state.time);
     }, 1000);
 
     this.setState({ setIntervalId: id });
@@ -31,6 +32,28 @@ class ListElement extends React.Component {
 
   componentDidUpdate() {
     console.log("componentDidUpdate executed");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(
+      "Called shouldComponentUpdate",
+
+      nextProps,
+      "nextProps",
+
+      this.props,
+      "this.props",
+
+      nextState,
+      "nextState",
+
+      this.state,
+      "this.state"
+    );
+    if (nextState.time != this.state.time) {
+      return false;
+    }
+    return true;
   }
 
   componentWillUnmount() {

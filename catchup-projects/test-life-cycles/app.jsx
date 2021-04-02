@@ -28,7 +28,7 @@ const App = () => {
         type="text"
         value={currentText}
         onChange={(event) => setCurrentText(event.target.value)}
-      />{" "}
+      />
       <button
         onClick={() => {
           addElement(currentText);
