@@ -17,6 +17,13 @@ function App() {
       },
     ]);
 
+  handleDelete = id => {
+    const filteredTaskes = this.state.tasks.filter(task => task.id !== id);
+    this.setState({
+      appTasks: filteredTaskes
+    })
+  }
+
   const onTaskClicked = (identifier) => {
     setAppTasks(
       appTasks.map((task) => {

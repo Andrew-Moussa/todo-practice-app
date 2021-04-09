@@ -10,6 +10,7 @@ const TaskList = ({ tasks, onTaskClicked }) => {
         isChecked={checked}
         text={text}
         onTaskClicked={onTaskClicked}
+        handleDelete = {() => handleDelete(task.id)}
       />
     );
   });
